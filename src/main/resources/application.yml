@@ -7,3 +7,8 @@ spring:
     url: jdbc:mysql://localhost:3306/point?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
     username: root
     password: yj_mysql
+
+
+mybatis:
+  type-aliases-package: com.point.www
+  mapper-locations: mybatis/mapper/**/*.xml
