@@ -1,6 +1,7 @@
-package Service;
+package com.point.www.service;
 
-import Repository.BoardRepository;
+import com.point.www.repository.BoardRepository;
+import com.point.www.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

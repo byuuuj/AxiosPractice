@@ -8,7 +8,15 @@ spring:
     username: root
     password: yj_mysql
 
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: /.jsp
+
 
 mybatis:
   type-aliases-package: com.point.www
   mapper-locations: mybatis/mapper/**/*.xml
+  configuration:
+
+

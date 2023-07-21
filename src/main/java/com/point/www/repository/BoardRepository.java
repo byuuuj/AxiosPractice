@@ -1,4 +1,4 @@
-package Repository;
+package com.point.www.repository;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
