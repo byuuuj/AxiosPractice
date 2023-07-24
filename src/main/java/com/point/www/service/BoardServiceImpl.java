@@ -17,4 +17,14 @@ public class BoardServiceImpl implements BoardService {
     public List<Map<String, Object>> getBoards() {
         return boardRepository.getBoards();
     }
+
+    @Override
+    public List<Map<String, Object>> listBoard() {
+        return boardRepository.listBoard();
+    }
+
+    @Override
+    public List<Map<String, Object>> boardDetail(String id) {
+        return boardRepository.boardDetail(id);
+    }
 }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>상세페이지</h1>
+  <div class="container">
+    <div>
+      <div>
+        <label for="boardId" th:text="${board.id}">ID</label>
+        <input type="text" id="boardId" name="boardId" class="form-control" th:value="${board.id}" readonly>
+      </div>
+    </div>
+    <div>
+      <div>
+          <label for="boardName" th:text="${board.name}">NAME</label>
+          <input type="text" id="boardName" name="boardName" class="form-control" th:value="${board.name}" readonly>
+      </div>
+    </div>
+    <div>
+      <div>
+          <label for="boardTitle" th:text="${board.title}">TITLE</label>
+          <input type="text" id="boardTitle" name="boardTitle" class="form-control" th:value="${board.title}" readonly>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

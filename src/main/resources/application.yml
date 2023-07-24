@@ -11,12 +11,21 @@ spring:
   mvc:
     view:
       prefix: /WEB-INF/views/
-      suffix: /.jsp
+      suffix: .jsp
+
+#  thymeleaf:
+    prefix: classpath:templates/
+    check-template-location: true
+    suffix: .html
+    mode: HTML
+    cache: false
 
 
 mybatis:
   type-aliases-package: com.point.www
   mapper-locations: mybatis/mapper/**/*.xml
-  configuration:
+#  configuration:
+
+
 
 

@@ -10,4 +10,8 @@ import java.util.Map;
 @Repository
 public interface BoardRepository {
     List<Map<String, Object>> getBoards();
+
+    List<Map<String, Object>> listBoard();
+
+    List<Map<String, Object>> boardDetail(String id);
 }
