@@ -26,5 +26,19 @@
       </div>
     </div>
   </div>
+
+    <div class="col">
+        <button class="w-100 btn btn-secondary btn-lg"
+                onclick="location.href='items.html'"
+                th:onclick="|location.href='@{/board/}'|"
+                type="button">목록</button>
+    </div>
+
+    <div class="col">
+        <button class="w-100 btn btn-primary btn-lg"
+                onclick="location.href='editForm.html'"
+                th:onclick="|location.href='@{/boards/{id}/edit(uid=${board.id})}'|"
+                type="button" >상품 수정</button>
+    </div>
 </body>
 </html>

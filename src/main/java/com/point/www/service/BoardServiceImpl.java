@@ -1,5 +1,6 @@
 package com.point.www.service;
 
+import com.point.www.dto.boardDTO;
 import com.point.www.repository.BoardRepository;
 import com.point.www.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +20,17 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public List<Map<String, Object>> listBoard() {
-        return boardRepository.listBoard();
+    public List<Map<String, Object>> list() {
+        return boardRepository.list();
     }
 
     @Override
-    public List<Map<String, Object>> boardDetail(String id) {
-        return boardRepository.boardDetail(id);
+    public Map<String, Object> detail(Long id) {
+        return boardRepository.detail(id);
+    }
+
+    @Override
+    public void add(boardDTO boarddto) {
+        boardRepository.add(boarddto);
     }
 }

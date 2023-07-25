@@ -1,12 +1,16 @@
 package com.point.www.service;
 
+import com.point.www.dto.boardDTO;
+
 import java.util.List;
 import java.util.Map;
 
 public interface BoardService {
     List<Map<String, Object>> getBoards();
 
-    List<Map<String, Object>> listBoard();
+    List<Map<String, Object>> list();
 
-    List<Map<String, Object>> boardDetail(String id);
+    Map<String, Object> detail(Long id);
+
+    public void add(boardDTO boarddto);
 }

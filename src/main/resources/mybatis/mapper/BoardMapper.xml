@@ -8,13 +8,22 @@
         SELECT * FROM board
     </select>
 
-    <select id="listBoard" resultType="java.util.HashMap">
-        SELECT * FROM board
+    <select id="list" resultType="java.util.HashMap">
+        SELECT
+            *
+        FROM board
     </select>
 
-    <select id="boardDetail" resultType="java.util.HashMap">
+    <select id="detail" resultType="java.util.HashMap">
         SELECT * FROM board
         WHERE id = #{id}
     </select>
+
+    <insert id="add">
+        INSERT INTO board
+            (name, title)
+        VALUES
+            (#{name} , #{title})
+    </insert>
 
 </mapper>

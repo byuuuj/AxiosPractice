@@ -4,7 +4,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/point?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://localhost:3306/point?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: yj_mysql
 
@@ -14,17 +14,14 @@ spring:
       suffix: .jsp
 
 #  thymeleaf:
-    prefix: classpath:templates/
-    check-template-location: true
+    prefix: classpath:/templates/
     suffix: .html
-    mode: HTML
     cache: false
 
 
 mybatis:
   type-aliases-package: com.point.www
   mapper-locations: mybatis/mapper/**/*.xml
-#  configuration:
 
 
 

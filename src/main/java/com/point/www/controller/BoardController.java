@@ -1,5 +1,6 @@
 package com.point.www.controller;
 
+import com.point.www.dto.boardDTO;
 import com.point.www.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,30 +13,43 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/v1/board")
+@RequestMapping("/board")
 public class BoardController {
     @Autowired
     private BoardService boardService;
 
-    @GetMapping("/list")
+    //jsp연결 테스트
+    @GetMapping("/list_jsp")
     public String getBoards() {
         return "test";
     }
 
-    @GetMapping("/test_board")
-    public String getTestBoard(Model model) {
 
-        List<Map<String, Object>> list = boardService.listBoard();
+    // 타임리프 테스트 리스트
+    @GetMapping("/")
+    public String list(Model model) {
+        List<Map<String, Object>> list = boardService.list();
         model.addAttribute("boards" , list);
 
         return "index";
     }
-@GetMapping("/detail/{id}")
-    public String getDetail(Model model , @PathVariable("id") String id) {
 
-        List<Map<String, Object>> list = boardService.boardDetail(id);
-        model.addAttribute("board" , list);
+
+    //타임리프 테스트 상세페이지
+    @GetMapping("/{id}")
+    public String detail(Model model , @PathVariable("id") Long id) {
+        //상세는 list로 받아올 필요없음
+        model.addAttribute("board" , boardService.detail(id));
 
         return "detail";
+    }
+
+
+    //타임리프 테스트 등록폼으로 이동
+    @GetMapping("/add")
+    public String add(Model model) {
+
+        model.addAttribute("boarddto",new boardDTO());
+        return "addForm";
     }
 }
