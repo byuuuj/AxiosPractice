@@ -1,6 +1,6 @@
 package com.point.www.repository;
 
-import com.point.www.dto.boardDTO;
+import com.point.www.dto.BoardDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -16,5 +16,9 @@ public interface BoardRepository {
 
     Map<String, Object> detail(Long id);
 
-    public void add(boardDTO boarddto);
+    public void add(BoardDTO dto);
+
+    public void edit(BoardDTO dto);
+
+    public void delete(Long id);
 }

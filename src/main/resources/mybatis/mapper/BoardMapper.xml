@@ -26,4 +26,15 @@
             (#{name} , #{title})
     </insert>
 
+    <update id="edit">
+        UPDATE board
+        SET name = #{name} , title = #{title}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM board
+        WHERE id = #{id}
+    </delete>
+
 </mapper>

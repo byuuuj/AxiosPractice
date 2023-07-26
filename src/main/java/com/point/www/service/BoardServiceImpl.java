@@ -1,8 +1,7 @@
 package com.point.www.service;
 
-import com.point.www.dto.boardDTO;
+import com.point.www.dto.BoardDTO;
 import com.point.www.repository.BoardRepository;
-import com.point.www.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +29,17 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public void add(boardDTO boarddto) {
-        boardRepository.add(boarddto);
+    public void add(BoardDTO dto) {
+        boardRepository.add(dto);
+    }
+
+    @Override
+    public void edit(BoardDTO dto) {
+        boardRepository.edit(dto);
+    }
+
+    @Override
+    public void delete(Long id) {
+        boardRepository.delete(id);
     }
 }

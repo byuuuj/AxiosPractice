@@ -29,7 +29,7 @@
         <tbody>
         <tr th:each="board : ${boards}">
             <td><a th:text="${board.id}">글 ID</a></td>
-            <td><a href="item.html" th:href="@{/v1/board/detail/{id}(id=${board.id})}"  th:text="${board.title}">제목</a></td>
+            <td><a href="item.html" th:href="@{/board/{id}(id=${board.id})}" th:text="${board.title}">제목</a></td>
             <td th:text="${board.name}">작성자</td>
         </tr>
         </tbody>

@@ -9,19 +9,13 @@
   <div class="container">
     <div>
       <div>
-        <label for="boardId" th:text="${board.id}">ID</label>
-        <input type="text" id="boardId" name="boardId" class="form-control" th:value="${board.id}" readonly>
-      </div>
-    </div>
-    <div>
-      <div>
-          <label for="boardName" th:text="${board.name}">NAME</label>
+          <label for="boardName" th:text="NAME">NAME</label>
           <input type="text" id="boardName" name="boardName" class="form-control" th:value="${board.name}" readonly>
       </div>
     </div>
     <div>
       <div>
-          <label for="boardTitle" th:text="${board.title}">TITLE</label>
+          <label for="boardTitle" th:text="TITLE">TITLE</label>
           <input type="text" id="boardTitle" name="boardTitle" class="form-control" th:value="${board.title}" readonly>
       </div>
     </div>
@@ -37,8 +31,15 @@
     <div class="col">
         <button class="w-100 btn btn-primary btn-lg"
                 onclick="location.href='editForm.html'"
-                th:onclick="|location.href='@{/boards/{id}/edit(uid=${board.id})}'|"
-                type="button" >상품 수정</button>
+                th:onclick="|location.href='@{/board/{id}/edit(id=${board.id})}'|"
+                type="button" >수정</button>
+    </div>
+
+    <div class="col">
+        <button class="w-100 btn btn-primary btn-lg"
+                onclick="location.href='editForm.html'"
+                th:onclick="|location.href='@{/board/{id}/delete(id=${board.id})}'|"
+                type="button" >삭제</button>
     </div>
 </body>
 </html>
