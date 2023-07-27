@@ -1,6 +1,7 @@
-package com.point.www.service;
+package com.point.www.board.service;
 
-import com.point.www.dto.BoardDTO;
+import com.point.www.board.dto.BoardDTO;
+import com.point.www.board.paging.Criteria;
 
 import java.util.List;
 import java.util.Map;
@@ -8,7 +9,9 @@ import java.util.Map;
 public interface BoardService {
     List<Map<String, Object>> getBoards();
 
-    List<Map<String, Object>> list();
+    List<Map<String, Object>> list(Criteria criteria);
+
+    public int listCount(Criteria criteria);
 
     Map<String, Object> detail(Long id);
 

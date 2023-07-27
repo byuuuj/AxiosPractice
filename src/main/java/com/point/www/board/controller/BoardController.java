@@ -1,7 +1,8 @@
-package com.point.www.controller;
+package com.point.www.board.controller;
 
-import com.point.www.dto.BoardDTO;
-import com.point.www.service.BoardService;
+import com.point.www.board.dto.BoardDTO;
+import com.point.www.board.paging.Criteria;
+import com.point.www.board.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,24 +17,18 @@ public class BoardController {
     @Autowired
     private BoardService boardService;
 
-    //jsp연결 테스트
-    @GetMapping("/list_jsp")
-    public String getBoards() {
-        return "test";
-    }
-
-
-    // 타임리프 테스트 리스트
+    // 리스트
     @GetMapping("/")
-    public String list(Model model) {
-        List<Map<String, Object>> list = boardService.list();
+    public String list(Model model, @ModelAttribute("criteria") Criteria criteria) {
+
+        List<Map<String, Object>> list = boardService.list(criteria);
         model.addAttribute("boards" , list);
 
         return "index";
     }
 
 
-    //타임리프 테스트 상세페이지
+    //상세페이지
     @GetMapping("/{id}")
     public String detail(Model model , @PathVariable("id") Long id) {
         //상세는 list로 받아올 필요없음
@@ -43,7 +38,7 @@ public class BoardController {
     }
 
 
-    //타임리프 테스트 등록폼으로 이동
+    //등록폼으로 이동
     @GetMapping("/add")
     public String add(Model model) {
 
@@ -51,7 +46,8 @@ public class BoardController {
         return "addForm";
     }
 
-    // 타임리프 테스트 게시판 등록
+
+    // 등록
     @PostMapping("/add")
     public String addBoard( @ModelAttribute BoardDTO dto) {
 
@@ -61,7 +57,7 @@ public class BoardController {
     }
 
 
-    //타임리프 수정폼으로 이동
+    // 수정폼으로 이동
     @GetMapping("/{id}/edit")
     public String edit(Model model , @PathVariable("id") Long id) {
 
@@ -70,7 +66,7 @@ public class BoardController {
         return "editForm";
     }
 
-    // 타임리프 수정
+    // 수정
     @PostMapping("/{id}/edit")
     public String editBoard(@ModelAttribute BoardDTO dto , @PathVariable("id") Long id ) {
 
@@ -79,7 +75,7 @@ public class BoardController {
         return "redirect:/board/{id}";
     }
 
-    //타임리프 삭제
+    // 삭제
     @RequestMapping("/{id}/delete")
     public String delet( @PathVariable("id") Long id ) {
 

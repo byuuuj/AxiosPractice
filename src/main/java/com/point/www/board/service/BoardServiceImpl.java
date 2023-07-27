@@ -1,7 +1,8 @@
-package com.point.www.service;
+package com.point.www.board.service;
 
-import com.point.www.dto.BoardDTO;
-import com.point.www.repository.BoardRepository;
+import com.point.www.board.dto.BoardDTO;
+import com.point.www.board.paging.Criteria;
+import com.point.www.board.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +20,12 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public List<Map<String, Object>> list() {
-        return boardRepository.list();
+    public List<Map<String, Object>> list(Criteria criteria) {
+        return boardRepository.list(criteria);
+    }
+    @Override
+    public int listCount(Criteria criteria){
+        return boardRepository.listCount(criteria);
     }
 
     @Override

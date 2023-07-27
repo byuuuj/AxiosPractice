@@ -1,6 +1,7 @@
-package com.point.www.repository;
+package com.point.www.board.repository;
 
-import com.point.www.dto.BoardDTO;
+import com.point.www.board.dto.BoardDTO;
+import com.point.www.board.paging.Criteria;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +13,8 @@ import java.util.Map;
 public interface BoardRepository {
     List<Map<String, Object>> getBoards();
 
-    List<Map<String, Object>> list();
+    List<Map<String, Object>> list(Criteria criteria);
+    public int listCount(Criteria criteria);
 
     Map<String, Object> detail(Long id);
 

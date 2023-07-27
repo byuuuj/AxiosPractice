@@ -1,4 +1,4 @@
-package com.point.www.dto;
+package com.point.www.board.dto;
 
 import lombok.*;
 

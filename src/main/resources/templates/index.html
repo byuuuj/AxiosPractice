@@ -5,35 +5,36 @@
     <title>Title</title>
 </head>
 <body>
-<h1>게시판 리스트</h1>
+    <h1>게시판 리스트</h1>
 
-<div class="row">
-    <div class="col">
-        <button class="btn btn-primary float-end"
-                onclick="location.href='addForm.html'"
-                th:onclick="|location.href='@{/board/add}'|"
-                type="button">글 등록</button>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-primary float-end"
+                    onclick="location.href='addForm.html'"
+                    th:onclick="|location.href='@{/board/add}'|"
+                    type="button">글 등록</button>
+        </div>
     </div>
-</div>
 
-<div>
-    <table class="table">
-        <thead>
-        <tr>
-            <th >ID</th>
-            <th >제목</th>
-            <th >작성자</th>
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th >ID</th>
+                <th >제목</th>
+                <th >작성자</th>
 
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="board : ${boards}">
-            <td><a th:text="${board.id}">글 ID</a></td>
-            <td><a href="item.html" th:href="@{/board/{id}(id=${board.id})}" th:text="${board.title}">제목</a></td>
-            <td th:text="${board.name}">작성자</td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="board : ${boards}">
+                <td><a th:text="${board.id}">글 ID</a></td>
+                <td><a href="item.html" th:href="@{/board/{id}(id=${board.id})}" th:text="${board.title}">제목</a></td>
+                <td th:text="${board.name}">작성자</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
 </body>
 </html>

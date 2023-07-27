@@ -1,7 +1,7 @@
-package com.point.www.controller.api;
+package com.point.www.board.controller.api;
 
 
-import com.point.www.service.BoardService;
+import com.point.www.board.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,9 +14,4 @@ public class BoardApiController {
     @Autowired
     private BoardService boardService;
 
-    @GetMapping("/list")
-    //jsp 연결 테스트
-    public List<Map<String, Object>> getBoards() {
-        return boardService.getBoards();
-    }
 }
