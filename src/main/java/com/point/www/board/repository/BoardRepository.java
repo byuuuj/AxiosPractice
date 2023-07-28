@@ -11,8 +11,6 @@ import java.util.Map;
 @Mapper
 @Repository
 public interface BoardRepository {
-    List<Map<String, Object>> getBoards();
-
     List<Map<String, Object>> list(Criteria criteria);
     public int listCount(Criteria criteria);
 

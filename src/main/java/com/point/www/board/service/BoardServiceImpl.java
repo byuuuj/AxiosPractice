@@ -6,6 +6,7 @@ import com.point.www.board.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -13,15 +14,21 @@ import java.util.Map;
 public class BoardServiceImpl implements BoardService {
     @Autowired
     private BoardRepository boardRepository;
-
-    @Override
-    public List<Map<String, Object>> getBoards() {
-        return boardRepository.getBoards();
-    }
-
     @Override
     public List<Map<String, Object>> list(Criteria criteria) {
-        return boardRepository.list(criteria);
+
+        //빈 데이터를 반환할경우 NullPointerException을 방지
+        List<Map<String, Object>> list = Collections.emptyList();
+
+        //리스트의 갯수
+        int listCount = boardRepository.listCount(criteria);
+
+        //리스트 갯수 0보다 클경우 리스트 불러오기
+        if(listCount > 0) {
+            list = boardRepository.list(criteria);
+        }
+
+        return list;
     }
     @Override
     public int listCount(Criteria criteria){

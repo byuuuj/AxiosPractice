@@ -18,11 +18,11 @@ public class BoardController {
     private BoardService boardService;
 
     // 리스트
-    @GetMapping("/")
+    @GetMapping
     public String list(Model model, @ModelAttribute("criteria") Criteria criteria) {
 
         List<Map<String, Object>> list = boardService.list(criteria);
-        model.addAttribute("boards" , list);
+        model.addAttribute("board" , list);
 
         return "index";
     }
