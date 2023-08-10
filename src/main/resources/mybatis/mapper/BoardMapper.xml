@@ -4,7 +4,7 @@
 
 <mapper namespace="com.point.www.board.repository.BoardRepository">
 
-    <select id="list" resultType="java.util.HashMap" parameterType="Criteria">
+    <select id="list" resultType="BoardDTO" parameterType="Criteria">
         SELECT
             *
         FROM board

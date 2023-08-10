@@ -21,8 +21,8 @@ public class Criteria {
         this.currentPageNo = 1;
         //한페이지에 10개씩 보여줄것
         this.recordsPerPage = 10;
-        //아래 보여지는 페이지사이즈는 10씩
-        this.pageSize = 10;
+        //아래 보여지는 페이지사이즈는 5씩
+        this.pageSize = 5;
     }
 
     //MySQL에서 LIMIT 구문의 앞부분에 사용되는 메서드

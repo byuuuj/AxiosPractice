@@ -6,6 +6,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PaginationInfo {
+    //이 클래스는 화면 하단의 페이지 번호를 계산하는 용도
+
     /** 페이징 계산에 필요한 파라미터들이 담긴 클래스 */
     private Criteria criteria;
 
@@ -33,6 +35,7 @@ public class PaginationInfo {
     /** 다음 페이지 존재 여부 */
     private boolean hasNextPage;
 
+    //생성자 : 잘못된 값이 들어오면 if문으로 기본값 설정한다.
     public PaginationInfo(Criteria criteria) {
         //페이징 파라미터의 현재 페이지번호가 1보다 작으면 1로 넣는다
         if (criteria.getCurrentPageNo() < 1) {
@@ -46,11 +49,24 @@ public class PaginationInfo {
 
         //하단의 보여지는 숫자가 5보다 작거나 20보다 크면 10넣기
         if (criteria.getPageSize() < 5 || criteria.getPageSize() > 20) {
-            criteria.setPageSize(10);
+            criteria.setPageSize(5);
         }
 
+        // 요청정보를 가진 criteria를 PaginationInfo클래스의 criteria로 저장, 그래야 페이지 번호 계산할수있음
         this.criteria = criteria;
     }
+
+    //파라미터로 넘어온 전체 데이터수를 PaginationInfo클래스의 전체 데이터 개수에 저장
+    public void setTotalRecordCount(int totalRecordCount) {
+        this.totalRecordCount = totalRecordCount;
+
+        if (totalRecordCount > 0) {
+            //데이터가 1개이상 있으면 페이지 번호계산하는 아래 메소드 실행
+           // calculation();
+        }
+    }
+
+
 
 
 

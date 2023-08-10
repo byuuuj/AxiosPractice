@@ -15,10 +15,10 @@ public class BoardServiceImpl implements BoardService {
     @Autowired
     private BoardRepository boardRepository;
     @Override
-    public List<Map<String, Object>> list(Criteria criteria) {
+    public List<BoardDTO> list(Criteria criteria) {
 
         //빈 데이터를 반환할경우 NullPointerException을 방지
-        List<Map<String, Object>> list = Collections.emptyList();
+        List<BoardDTO> list = Collections.emptyList();
 
         //리스트의 갯수
         int listCount = boardRepository.listCount(criteria);

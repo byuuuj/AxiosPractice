@@ -33,8 +33,26 @@
                 <td th:text="${board.name}">작성자</td>
             </tr>
             </tbody>
+
+            <tfoot>
+                <tr>
+                    <td>
+                        <nav class="pagination">
+                            <ul>
+<!--                                반복문으로 가져오기 -->
+                                <li>
+                                    <a>1</a>
+                                    <a>2</a>
+                                    <a>3</a>
+                                    <a>4</a>
+                                    <a>5</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </td>
+                </tr>
+            </tfoot>
         </table>
     </div>
-
 </body>
 </html>

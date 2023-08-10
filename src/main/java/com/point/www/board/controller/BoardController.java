@@ -21,7 +21,7 @@ public class BoardController {
     @GetMapping
     public String list(Model model, @ModelAttribute("criteria") Criteria criteria) {
 
-        List<Map<String, Object>> list = boardService.list(criteria);
+        List<BoardDTO> list = boardService.list(criteria);
         model.addAttribute("board" , list);
 
         return "index";
