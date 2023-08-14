@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -36,23 +36,24 @@
 
             <tfoot>
                 <tr>
-                    <td>
-                        <nav class="pagination">
-                            <ul>
-<!--                                반복문으로 가져오기 -->
-                                <li>
-                                    <a>1</a>
-                                    <a>2</a>
-                                    <a>3</a>
-                                    <a>4</a>
-                                    <a>5</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </td>
+                    <th:block layout:fragment="paging">
+                        <nav th:replace="board/fragments/common :: pagination"></nav>
+                    </th:block>
                 </tr>
             </tfoot>
         </table>
     </div>
 </body>
+
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+
+        function movePage(uri, queryString) {
+            location.href = uri + queryString;
+        }
+
+        /*]]>*/
+    </script>
+</th:block>
 </html>

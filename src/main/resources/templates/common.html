@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<!--th:fragment :-->
+<!--다른 HTML에서 pagination이라는 이름으로 엘리먼트를 인클루드 하기 위해 사용/ 전체 데이터 개수가 1개 이상이면 페이지 번호를 출력-->
+<nav th:fragment="pagination" th:if="${dto != null and dto.paginationInfo.totalRecordCount > 0}" th:object="${dto.paginationInfo}" th:with="info=${dto.paginationInfo}" aria-label="Page navigation" class="text-center">
+
+  <ul class="pagination">
+<!--    이전 페이지가 존재하면 게시글 리스트에서 1페이지로 이동-->
+    <li th:if="*{hasPreviousPage == true}" th:onclick="movePage([[ ${#request.requestURI} ]], [[ ${dto.makeQueryString(1)} ]])">
+      <a href="javascript:void(0)" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    <li th:if="*{hasPreviousPage == true}" th:onclick="movePage([[ ${#request.requestURI} ]], [[ ${dto.makeQueryString(info.firstPage - 1)} ]])">
+      <a href="javascript:void(0)" aria-label="Previous"><span aria-hidden="true">&lsaquo;</span></a>
+    </li>
+    <li th:each="pageNo : *{#numbers.sequence( firstPage, lastPage )}" th:class="${pageNo == dto.currentPageNo} ? 'active'">
+      <a href="javascript:void(0)" th:text="${pageNo}" th:onclick="movePage([[ ${#request.requestURI} ]], [[ ${dto.makeQueryString(pageNo)} ]])"></a>
+    </li>
+    <li th:if="*{hasNextPage == true}" th:onclick="movePage([[ ${#request.requestURI} ]], [[ ${dto.makeQueryString(info.lastPage + 1)} ]])">
+      <a href="javascript:void(0)" aria-label="Next"><span aria-hidden="true">&rsaquo;</span></a>
+    </li>
+    <li th:if="*{hasNextPage == true}" th:onclick="movePage([[ ${#request.requestURI} ]], [[ ${dto.makeQueryString(info.totalPageCount)} ]])">
+      <a href="javascript:void(0)" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+  </ul>
+
+</nav>
+
+</html>
+

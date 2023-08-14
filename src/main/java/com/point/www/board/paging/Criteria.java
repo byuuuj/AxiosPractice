@@ -2,6 +2,8 @@ package com.point.www.board.paging;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @Getter
 @Setter
@@ -21,13 +23,25 @@ public class Criteria {
         this.currentPageNo = 1;
         //한페이지에 10개씩 보여줄것
         this.recordsPerPage = 10;
-        //아래 보여지는 페이지사이즈는 5씩
-        this.pageSize = 5;
+        //아래 보여지는 페이지사이즈는 10씩
+        this.pageSize = 10;
     }
 
     //MySQL에서 LIMIT 구문의 앞부분에 사용되는 메서드
-    public int getStartPage() {
-        return (currentPageNo - 1) * recordsPerPage;
+//    public int getStartPage() {
+//        return (currentPageNo - 1) * recordsPerPage;
+//    }
+
+    public String makeQueryString(int pageNo) {
+
+        UriComponents uriComponents = UriComponentsBuilder.newInstance()
+                .queryParam("currentPageNo", pageNo)
+                .queryParam("recordsPerPage", recordsPerPage)
+                .queryParam("pageSize", pageSize)
+                .build()
+                .encode();
+
+        return uriComponents.toUriString();
     }
 
 

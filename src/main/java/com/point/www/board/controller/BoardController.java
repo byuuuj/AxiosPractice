@@ -19,9 +19,9 @@ public class BoardController {
 
     // 리스트
     @GetMapping
-    public String list(Model model, @ModelAttribute("criteria") Criteria criteria) {
+    public String list(Model model, @ModelAttribute("dto") BoardDTO dto) {
 
-        List<BoardDTO> list = boardService.list(criteria);
+        List<BoardDTO> list = boardService.list(dto);
         model.addAttribute("board" , list);
 
         return "index";

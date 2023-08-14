@@ -4,15 +4,15 @@
 
 <mapper namespace="com.point.www.board.repository.BoardRepository">
 
-    <select id="list" resultType="BoardDTO" parameterType="Criteria">
+    <select id="list" resultType="BoardDTO" parameterType="BoardDTO">
         SELECT
             *
         FROM board
         LIMIT
-        #{startPage}, #{recordsPerPage}
+            #{paginationInfo.firstRecordIndex}, #{recordsPerPage}
     </select>
 
-    <select id="listCount" resultType="int" parameterType="Criteria">
+    <select id="listCount" resultType="int" parameterType="BoardDTO">
         SELECT
             COUNT(*)
         FROM board
