@@ -37,14 +37,13 @@
             <tfoot>
                 <tr>
                     <th:block layout:fragment="paging">
-                        <nav th:replace="board/fragments/common :: pagination"></nav>
+                        <nav th:replace="common :: pagination"></nav>
                     </th:block>
                 </tr>
             </tfoot>
         </table>
     </div>
 </body>
-
 <th:block layout:fragment="script">
     <script th:inline="javascript">
         /*<![CDATA[*/
@@ -57,3 +56,4 @@
     </script>
 </th:block>
 </html>
+

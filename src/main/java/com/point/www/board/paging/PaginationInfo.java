@@ -41,13 +41,13 @@ public class PaginationInfo {
         if (criteria.getCurrentPageNo() < 1) {
             criteria.setCurrentPageNo(1);
         }
-
-        //페이지당 출력할 데이터 갯수가 1보다 작거나(데이터 없음) , 100보다 크면 10넣기
+//
+//        //페이지당 출력할 데이터 갯수가 1보다 작거나(데이터 없음) , 100보다 크면 10넣기
         if (criteria.getRecordsPerPage() < 1 || criteria.getRecordsPerPage() > 100) {
             criteria.setRecordsPerPage(10);
         }
-
-        //하단의 보여지는 숫자가 5보다 작거나 20보다 크면 10넣기
+//
+//        //하단의 보여지는 숫자가 5보다 작거나 20보다 크면 10넣기
         if (criteria.getPageSize() < 5 || criteria.getPageSize() > 20) {
             criteria.setPageSize(10);
         }
@@ -78,7 +78,10 @@ public class PaginationInfo {
 
         //페이지 리스트의 첫 페이지 번호
         //((현재 페이지 -1) / 페이지당 출력할 데이터 개수) * 화면 하단의 페이지 개수 +1
-        firstPage = (criteria.getCurrentPageNo() - 1 / criteria.getPageSize()) * criteria.getPageSize() +1 ;
+        firstPage = (criteria.getCurrentPageNo() - 1) / criteria.getPageSize() * criteria.getPageSize() + 1 ;
+        int currentPage = (criteria.getCurrentPageNo() - 1);
+        System.out.println(currentPage);
+        System.out.println(firstPage);
 
         //페이지 리스트의 마지막 페이지 번호
         //(첫 페이지 번호 + 화면 하단의 페이지 개수) -1
@@ -92,7 +95,7 @@ public class PaginationInfo {
         firstRecordIndex = (criteria.getCurrentPageNo() - 1) * criteria.getRecordsPerPage();
 
         //SQL의 조건절에 사용되는 마지막 RNUM : 사용안함
-        lastRecordIndex = criteria.getCurrentPageNo() * criteria.getRecordsPerPage();
+//        lastRecordIndex = criteria.getCurrentPageNo() * criteria.getRecordsPerPage();
 
         // 이전 페이지 존재 여부 체크 (첫페이지 1이면 flase, 1이 아니면 true)
         hasPreviousPage = firstPage != 1;

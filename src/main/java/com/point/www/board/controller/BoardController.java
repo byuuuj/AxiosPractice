@@ -30,7 +30,7 @@ public class BoardController {
 
     //상세페이지
     @GetMapping("/{id}")
-    public String detail(Model model , @PathVariable("id") Long id) {
+    public String detail(Model model, @PathVariable("id") Long id) {
         //상세는 list로 받아올 필요없음
         model.addAttribute("board" , boardService.detail(id));
 
