@@ -1,7 +1,6 @@
-package com.point.www.board.controller;
+package com.point.www.board.controller.move;
 
 import com.point.www.board.dto.BoardDTO;
-import com.point.www.board.paging.Criteria;
 import com.point.www.board.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,11 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/board")
-public class BoardController {
+public class BoardMoveController {
     @Autowired
     private BoardService boardService;
 
@@ -77,7 +75,7 @@ public class BoardController {
 
     // 삭제
     @RequestMapping("/{id}/delete")
-    public String delet( @PathVariable("id") Long id ) {
+    public String delete( @PathVariable("id") Long id ) {
 
         boardService.delete(id);
 

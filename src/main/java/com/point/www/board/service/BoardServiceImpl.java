@@ -63,4 +63,17 @@ public class BoardServiceImpl implements BoardService {
     public void delete(Long id) {
         boardRepository.delete(id);
     }
+
+    @Override
+    public List<BoardDTO> fix_list(BoardDTO dto) {
+
+        List<BoardDTO> list = boardRepository.fix_list(dto);
+
+        return list;
+    }
+
+    @Override
+    public void fix_add(BoardDTO dto) {
+        boardRepository.fix_add(dto);
+    }
 }

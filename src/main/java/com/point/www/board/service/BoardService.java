@@ -18,4 +18,8 @@ public interface BoardService {
     public void edit(BoardDTO dto);
 
     public void delete(Long id);
+
+    List<BoardDTO> fix_list(BoardDTO dto);
+
+    public void fix_add(BoardDTO dto);
 }

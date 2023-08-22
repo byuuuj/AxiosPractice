@@ -41,4 +41,17 @@
         WHERE id = #{id}
     </delete>
 
+    <select id="fix_list" resultType="BoardDTO" parameterType="BoardDTO">
+        SELECT
+            *
+        FROM fix_board
+    </select>
+
+    <insert id="fix_add">
+        INSERT INTO fix_board
+            (name, title)
+        VALUES
+            (#{name} , #{title})
+    </insert>
+
 </mapper>
