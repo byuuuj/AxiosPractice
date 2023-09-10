@@ -32,17 +32,16 @@ dependencies {
 	// MyBatis
 	implementation group: 'com.oracle.database.jdbc', name: 'ojdbc11', version: '21.8.0.0'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.0'
+//	runtimeOnly 'com.mysql:mysql-connector-java'
 
 	//thymeleaf
 	implementation('org.springframework.boot:spring-boot-starter-thymeleaf')
 	implementation('nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect')
 
+	implementation 'org.json:json:20230227'
+
 	//devtools : 서버재시작 없이 새로고침
 	implementation 'org.springframework.boot:spring-boot-devtools'
-
-	//JSP
-//	implementation 'javax.servlet:jstl'
-//	implementation "org.apache.tomcat.embed:tomcat-embed-jasper"
 
 }
 

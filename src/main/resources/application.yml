@@ -1,6 +1,5 @@
 server:
   port: 8080
-
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -8,18 +7,15 @@ spring:
     username: root
     password: yj_mysql
   devtools:
-    restart:
+  #    톰캣 재실행시 재build 되는것 수정
+    livereload:
       enabled: true
-
+    restart:
+      enabled: false
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
     cache: false
-
-    #  mvc:
-    #    view:
-    #      prefix: /WEB-INF/views/
-    #      suffix: .jsp
 
 mybatis:
   type-aliases-package: com.point.www

@@ -1,7 +1,6 @@
 package com.point.www.board.service;
 
 import com.point.www.board.dto.BoardDTO;
-import com.point.www.board.paging.Criteria;
 
 import java.util.List;
 import java.util.Map;
@@ -22,4 +21,8 @@ public interface BoardService {
     List<BoardDTO> fix_list(BoardDTO dto);
 
     public void fix_add(BoardDTO dto);
+
+    public void fix_update(BoardDTO dto);
+
+    public void fix_delete(BoardDTO dto);
 }

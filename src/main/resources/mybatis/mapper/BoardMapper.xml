@@ -32,7 +32,8 @@
 
     <update id="edit">
         UPDATE board
-        SET name = #{name} , title = #{title}
+        SET name = #{name}
+            ,title = #{title}
         WHERE id = #{id}
     </update>
 
@@ -47,11 +48,23 @@
         FROM fix_board
     </select>
 
-    <insert id="fix_add">
+    <insert id="fix_add" parameterType="BoardDTO">
         INSERT INTO fix_board
             (name, title)
         VALUES
             (#{name} , #{title})
     </insert>
+
+    <update id="fix_update" parameterType="BoardDTO">
+        UPDATE fix_board
+        SET name = #{name}
+            ,title = #{title}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="fix_delete"  parameterType="BoardDTO">
+        DELETE FROM fix_board
+        WHERE id = #{id}
+    </delete>
 
 </mapper>

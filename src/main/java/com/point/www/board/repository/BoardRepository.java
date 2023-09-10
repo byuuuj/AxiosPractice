@@ -1,7 +1,6 @@
 package com.point.www.board.repository;
 
 import com.point.www.board.dto.BoardDTO;
-import com.point.www.board.paging.Criteria;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -25,4 +24,6 @@ public interface BoardRepository {
     List<BoardDTO> fix_list(BoardDTO dto);
 
     public void fix_add(BoardDTO dto);
+    public void fix_update(BoardDTO dto);
+    public void fix_delete(BoardDTO dto);
 }

@@ -1,7 +1,6 @@
 package com.point.www.board.service;
 
 import com.point.www.board.dto.BoardDTO;
-import com.point.www.board.paging.Criteria;
 import com.point.www.board.paging.PaginationInfo;
 import com.point.www.board.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,5 +74,15 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public void fix_add(BoardDTO dto) {
         boardRepository.fix_add(dto);
+    }
+
+    @Override
+    public void fix_update(BoardDTO dto) {
+        boardRepository.fix_update(dto);
+    }
+
+    @Override
+    public void fix_delete(BoardDTO dto) {
+        boardRepository.fix_delete(dto);
     }
 }
