@@ -58,6 +58,15 @@
 
   list()
 
+  let totalRecordCount = 0;
+  let totalPageCount = 0;
+  let firstPage = 0;
+  let lastPage = 0;
+  let firstRecordIndex = 0;
+  let lastRecordIndex = 0;
+  let hasPreviousPage = 0;
+  let hasNextPage = 0;
+
   //리스트 가져오기 select
   function list(){
 
@@ -69,25 +78,7 @@
       params: params
     }).then((response) => {
       const data = response.data // 서버에서 받아온 데이터
-      // console.log(data)
-
-      //페이징처리
-      let totalRecordCount = data.dto.totalRecordCount;
-
-      let totalPageCount = data.dto.totalPageCount;
-
-      let firstPage = data.dto.firstPage;
-
-      let lastPage = data.dto.lastPage;
-
-      let firstRecordIndex = data.dto.firstRecordIndex;
-
-      let lastRecordIndex = data.dto.lastRecordIndex;
-
-      let hasPreviousPage = data.dto.hasPreviousPage;
-
-      let hasNextPage = data.dto.hasNextPage;
-
+      console.log(data)
       for(i in data) {
         let table = document.getElementById("list");
         table.insertAdjacentHTML ("afterbegin" ,
@@ -239,38 +230,8 @@
 
   //페이징 처리
   function pagination(dto){
-    return
-    `
-    <nav th:fragment="pagination" th:if="${dto != null and dto.paginationInfo.totalRecordCount > 0}"
-         th:object="${dto.paginationInfo}" th:with="info=${dto.paginationInfo}" aria-label="Page navigation"
-         className="text-center">
 
-      <ul className="pagination">
-        <!--    이전 페이지가 존재하면 게시글 리스트에서 1페이지로 이동-->
-        <li th:if="*{hasPreviousPage == true}"
-            th:onclick="movePage([[ ${#request.requestURI} ]], [[ ${dto.makeQueryString(1)} ]])">
-          <a href="javascript:void(0)" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-        </li>
-        <li th:if="*{hasPreviousPage == true}"
-            th:onclick="movePage([[ ${#request.requestURI} ]], [[ ${dto.makeQueryString(info.firstPage - 1)} ]])">
-          <a href="javascript:void(0)" aria-label="Previous"><span aria-hidden="true">&lsaquo;</span></a>
-        </li>
-        <li th:each="pageNo : *{#numbers.sequence( firstPage, lastPage )}"
-            th:class="${pageNo == dto.currentPageNo} ? 'active'">
-          <a href="javascript:void(0)" th:text="${pageNo}"
-             th:onclick="movePage([[ ${#request.requestURI} ]], [[ ${dto.makeQueryString(pageNo)} ]])"></a>
-        </li>
-        <li th:if="*{hasNextPage == true}"
-            th:onclick="movePage([[ ${#request.requestURI} ]], [[ ${dto.makeQueryString(info.lastPage + 1)} ]])">
-          <a href="javascript:void(0)" aria-label="Next"><span aria-hidden="true">&rsaquo;</span></a>
-        </li>
-        <li th:if="*{hasNextPage == true}"
-            th:onclick="movePage([[ ${#request.requestURI} ]], [[ ${dto.makeQueryString(info.totalPageCount)} ]])">
-          <a href="javascript:void(0)" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-        </li>
-      </ul>
-    </nav>
-    `
+
   }
 
 

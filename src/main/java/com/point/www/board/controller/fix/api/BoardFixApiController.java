@@ -15,18 +15,17 @@ public class BoardFixApiController {
     private BoardService boardService;
 
     @GetMapping
-    public JSONObject fix_list(@ModelAttribute("dto") BoardDTO dto) {
+    public JSONObject fix_list(@ModelAttribute("dto") BoardDTO dto) { //map으로 변경 or dto 하나더 만들어서 둘다넣는다.
         JSONObject json = new JSONObject();
 //
-//        try {
-//            json.put("list", boardService.list(dto));
-//            json.put("dto" , dto);
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return json;
-        return null;
+        try {
+            json.put("list", boardService.list(dto));
+            json.put("dto" , dto);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return json;
     }
 
     @PostMapping("/add")
